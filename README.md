@@ -1,0 +1,70 @@
+# triton-ensemble
+
+This project explores implementing model management in Triton Inference Server. Its objective is to allow continuous loading and unloading of models dynamically.
+
+## Getting Started
+
+### 1. Clone the Repository:
+
+   Use Git to clone the repository locally:
+
+   ```
+   git clone https://gitlab.com/olooeez/triton-model-management.git
+   ```
+
+   > **Note:** Git Large File Storage (LFS) is required for this repository. Install it using `git lfs install` before cloning.
+
+### 2. Install Dependencies:
+
+   Navigate to the project directory and install necessary dependencies using pip:
+
+   ```
+   cd triton-model-management
+   pip install -r requirements.txt
+   ```
+
+### 3. Build the Docker Image:
+
+   Construct a Docker image to encapsulate the project environment:
+
+   ```
+   docker build -t triton-inference-server-manager .
+   ```
+
+### 4. Create a Container:
+
+   Execute the `server.sh` script to set up the Triton Inference Server within a container:
+
+   ```
+   bash server.sh
+   ```
+
+### 5. Run the Model Management:
+
+   Run the `manage.py` script with the load or unload commands to load or unload models:
+
+   ```
+   python3 manage.py [load|unload] MODEL_NAME
+   ```
+
+   You can also use the `list` command to list all models and their status:
+
+   ```
+   python3 manage.py list
+   ```
+
+### 6. Run the Client:
+
+   Run the `main.py` script to infer an image with a specific model:
+
+   ```
+   python3 main.py MODEL_NAME
+   ```
+
+## Contributing
+
+If you're interested in contributing to this project, feel free to open a merge request. We welcome all forms of collaboration!
+
+## License
+
+This project is available under the [The Unlicense](https://gitlab.com/olooeez/triton-model-management/-/blob/main/LICENSE). For more information, please see the LICENSE file.
