@@ -1,4 +1,4 @@
-# triton-ensemble
+# triton-model-management
 
 This project explores implementing model management in Triton Inference Server. Its objective is to allow continuous loading and unloading of models dynamically.
 
