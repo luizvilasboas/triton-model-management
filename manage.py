@@ -4,12 +4,13 @@ import json
 
 BASE_URL = "http://localhost:8000/v2/repository"
 
+
 def load_models(models):
     for model in models:
         url = f"{BASE_URL}/models/{model}/load"
-        
+
         print(f"Loading model: {model}")
-        
+
         response = requests.post(url)
 
         if response.status_code == 200:
