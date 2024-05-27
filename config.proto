@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+enum DataType {
+  TYPE_FP32 = 0;
+}
+
+enum InstanceKind {
+  KIND_CPU = 0;
+}
+
+message InputSpec {
+  string name = 1;
+  DataType data_type = 2;
+  repeated int32 dims = 3;
+}
+
+message OutputSpec {
+  string name = 1;
+  DataType data_type = 2;
+  repeated int32 dims = 3;
+}
+
+message InstanceGroup {
+  int32 count = 1;
+  InstanceKind kind = 2;
+}
+
+message ModelConfig {
+  string backend = 1;
+  string name = 2;
+  repeated InputSpec input = 3;
+  repeated OutputSpec output = 4;
+  repeated InstanceGroup instance_group = 5;
+}
