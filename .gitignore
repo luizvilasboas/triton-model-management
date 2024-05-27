@@ -116,3 +116,6 @@ dmypy.json
 
 # Image output
 *-output.jpg
+
+# Proto output
+config_pb2.py
