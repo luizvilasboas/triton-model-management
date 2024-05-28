@@ -4,6 +4,7 @@ import json
 
 BASE_URL = "http://localhost:8000/v2"
 
+
 def load_model(model, config):
     if config:
         from jsonify import pbtxt_to_dict
@@ -72,13 +73,14 @@ def list_config_model(model):
     else:
         print(f"Failed to list model config. Status code: {response.status_code}")
 
+
 def main():
     parser = argparse.ArgumentParser(description='Manage models')
     subparsers = parser.add_subparsers(dest='command', required=True)
 
     load_parser = subparsers.add_parser('load', help='Load models')
     load_parser.add_argument('model', type=str, help='Name of model to load')
-    load_parser.add_argument('--config', type=str, required=False, help='Config of model to load')
+    load_parser.add_argument('config', type=str, help='Config of model to load')
 
     unload_parser = subparsers.add_parser('unload', help='Unload models')
     unload_parser.add_argument('model', type=str, help='Name of model to unload')
