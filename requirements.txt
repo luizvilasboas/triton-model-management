@@ -5,10 +5,12 @@ attrs==23.2.0
 Brotli==1.1.0
 certifi==2024.2.2
 charset-normalizer==3.3.2
+coloredlogs==15.0.1
 contourpy==1.2.1
 cuda-python==12.5.0
 cycler==0.12.1
 filelock==3.14.0
+flatbuffers==24.3.25
 fonttools==4.51.0
 frozenlist==1.4.1
 fsspec==2024.5.0
@@ -16,6 +18,7 @@ gevent==24.2.1
 geventhttpclient==2.0.2
 greenlet==3.0.3
 grpcio==1.64.0
+humanfriendly==10.0
 idna==3.7
 Jinja2==3.1.4
 kiwisolver==1.4.5
@@ -37,6 +40,8 @@ nvidia-cusparse-cu12==12.1.0.106
 nvidia-nccl-cu12==2.20.5
 nvidia-nvjitlink-cu12==12.5.40
 nvidia-nvtx-cu12==12.1.105
+onnx==1.16.1
+onnxruntime==1.18.0
 opencv-python==4.9.0.80
 packaging==24.0
 pandas==2.2.2
@@ -52,6 +57,7 @@ PyYAML==6.0.1
 requests==2.32.2
 scipy==1.13.0
 seaborn==0.13.2
+setuptools==70.0.0
 six==1.16.0
 sympy==1.12
 thop==0.1.1.post2209072238
