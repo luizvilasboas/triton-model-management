@@ -39,12 +39,28 @@ This project explores implementing model management in Triton Inference Server. 
    bash server.sh
    ```
 
-### 5. Run the Model Management:
+### 5. Compile Protocol Buffers file
+
+   Run the command below to compile a `config_pb2.py` for the protocol buffers:
+
+   ```
+   protoc --python_out=. config.proto
+   ```
+
+   > **Note**: You need to have `protoc` installed. Use `sudo apt install protobuf-compiler` to install it.
+
+### 6. Run the Model Management:
 
    Run the `manage.py` script with the load or unload commands to load or unload models:
 
    ```
    python3 manage.py [load|unload] MODEL_NAME
+   ```
+
+   > **Note**: When using the `load` command, pass the config.pbtxt file (in the `configs` folder are all the configurations for this project). Here is an example:
+
+   ```
+   python3 manage.py load yolov8n configs/yolov8n.pbtxt
    ```
 
    You can also use the `list` command to list all models and their status:
@@ -53,12 +69,12 @@ This project explores implementing model management in Triton Inference Server. 
    python3 manage.py list
    ```
 
-### 6. Run the Client:
+### 7. Run the Client:
 
    Run the `main.py` script to infer an image with a specific model:
 
    ```
-   python3 main.py MODEL_NAME
+   python3 main.py
    ```
 
 ## Contributing
