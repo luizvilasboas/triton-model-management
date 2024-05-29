@@ -27,7 +27,7 @@ This project explores implementing model management in Triton Inference Server. 
 
    Construct a Docker image to encapsulate the project environment:
 
-   ```
+   ```bash
    docker build -t triton-inference-server-manager .
    ```
 
@@ -35,7 +35,7 @@ This project explores implementing model management in Triton Inference Server. 
 
    Execute the `server.sh` script to set up the Triton Inference Server within a container:
 
-   ```
+   ```bash
    bash server.sh
    ```
 
@@ -43,7 +43,7 @@ This project explores implementing model management in Triton Inference Server. 
 
    Run the command below to compile a `config_pb2.py` for the protocol buffers:
 
-   ```
+   ```bash
    protoc --python_out=. config.proto
    ```
 
@@ -53,19 +53,26 @@ This project explores implementing model management in Triton Inference Server. 
 
    Run the `manage.py` script with the load or unload commands to load or unload models:
 
-   ```
+   ```bash
    python3 manage.py [load|unload] MODEL_NAME
    ```
 
-   > **Note**: When using the `load` command, pass the config.pbtxt file. Here is an example:
+   When using the `load` command, pass the config.pbtxt file. Here is an example:
 
+   ```bash
+   python3 manage.py load yolov8n --config configs/yolov8n.pbtxt
    ```
-   python3 manage.py load yolov8n configs/yolov8n.pbtxt
+
+   To create a model ensemble dynamically use command `ensemble` like the one below:
+
+   ```bash
+   python3 manage.py ensemble MODEL_NAME...  # To load model ensemble
+   python3 manage.py unensemble              # To unload model ensemble
    ```
 
    You can also use the `list` command to list all models and their status:
 
-   ```
+   ```bash
    python3 manage.py list
    ```
 
@@ -73,7 +80,7 @@ This project explores implementing model management in Triton Inference Server. 
 
    Run the `main.py` script to infer an image with a specific model:
 
-   ```
+   ```bash
    python3 main.py
    ```
 
