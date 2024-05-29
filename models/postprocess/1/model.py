@@ -12,6 +12,7 @@ class TritonPythonModel:
     def initialize(self, args):
         """`initialize` is called only once when the model is being loaded."""
         self.model_config = json.loads(args['model_config'])
+        self.input_tensor_names = [input_config["name"] for input_config in self.model_config["input"]]
 
         self.num_detections_dtype = self._get_output_dtype("num_detections")
         self.detection_boxes_dtype = self._get_output_dtype("detection_boxes")
@@ -39,10 +40,8 @@ class TritonPythonModel:
         return responses
 
     def _get_input_tensors(self, request):
-        in_0 = pb_utils.get_input_tensor_by_name(request, "INPUT_0").as_numpy()
-        in_1 = pb_utils.get_input_tensor_by_name(request, "INPUT_1").as_numpy()
-
-        return [in_0, in_1]
+        input_tensors = [pb_utils.get_input_tensor_by_name(request, name).as_numpy() for name in self.input_tensor_names]
+        return input_tensors
 
     def _process_tensors(self, input_tensors):
         outputs = [cv2.transpose(tensor[0]) for tensor in input_tensors]
