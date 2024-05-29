@@ -105,6 +105,11 @@ def load_model_ensemble(models):
             print(f"Failed to load model: {model}. Status code: {response.status_code}")
 
 
+def unload_ensemble():
+    unload_model("yolov8n_ensemble")
+    unload_model("postprocess")
+
+
 def main():
     parser = argparse.ArgumentParser(description='Manage models')
     subparsers = parser.add_subparsers(dest='command', required=True)
@@ -124,6 +129,8 @@ def main():
     ensemble_parser = subparsers.add_parser('ensemble', help='Load model ensemble')
     ensemble_parser.add_argument('models', nargs='+', help='Model to load into ensemble')
 
+    unload_ensemble_parser = subparsers.add_parser('unensemble', help='Unload model ensemble')
+
     args = parser.parse_args()
 
     if args.command == 'load':
@@ -136,6 +143,8 @@ def main():
         list_config_model(args.model)
     elif args.command == 'ensemble':
         load_model_ensemble(args.models)
+    elif args.command == 'unensemble':
+        unload_ensemble()
 
 
 if __name__ == "__main__":
