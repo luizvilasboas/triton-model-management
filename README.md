@@ -57,7 +57,7 @@ This project explores implementing model management in Triton Inference Server. 
    python3 manage.py [load|unload] MODEL_NAME
    ```
 
-   > **Note**: When using the `load` command, pass the config.pbtxt file (in the `configs` folder are all the configurations for this project). Here is an example:
+   > **Note**: When using the `load` command, pass the config.pbtxt file. Here is an example:
 
    ```
    python3 manage.py load yolov8n configs/yolov8n.pbtxt
