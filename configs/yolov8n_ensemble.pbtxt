@@ -25,9 +25,9 @@ output [
     },
     {
         name: "detection_classes"
-        data_type: TYPE_INT32
-        dims: [1000]
-    }
+        data_type: TYPE_STRING
+        dims: [1]
+    },
 ]
 ensemble_scheduling {
     step [
@@ -81,7 +81,7 @@ ensemble_scheduling {
             output_map {
                 key: "detection_classes"
                 value: "detection_classes"
-            }
+            },
         }
     ]
 }

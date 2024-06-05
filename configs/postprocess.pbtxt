@@ -32,8 +32,8 @@ output [
     },
     {
       name: "detection_classes"
-      data_type: TYPE_INT32
-      dims: [1000]
-    }
+      data_type: TYPE_STRING
+      dims: [1]
+    },
 ]
 instance_group [{ kind: KIND_CPU }]
