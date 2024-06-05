@@ -53,8 +53,8 @@ def create_ensemble_config(model_names: list[str]) -> tuple[dict, dict]:
             },
             {
                 "name": "detection_classes",
-                "data_type": "TYPE_INT32",
-                "dims": [1000]
+                "data_type": "TYPE_STRING",
+                "dims": [1]
             }
         ],
         "ensemble_scheduling": {
@@ -88,15 +88,15 @@ def create_ensemble_config(model_names: list[str]) -> tuple[dict, dict]:
         }
     }
 
-    for idx, model_name in enumerate(model_names):
-        postprocess_step["input_map"][f"INPUT_{idx}"] = f"{model_name}_output"
+    for model_name in model_names:
+        postprocess_step["input_map"][model_name] = f"{model_name}_output"
 
     ensemble_config["ensemble_scheduling"]["step"].append(postprocess_step)
 
     postprocess_inputs = []
-    for idx in range(len(model_names)):
+    for model_name in model_names:
         input_entry = {
-            "name": f"INPUT_{idx}",
+            "name": model_name,
             "dims": [-1, -1, -1],
             "data_type": "TYPE_FP32"
         }
@@ -125,8 +125,8 @@ def create_ensemble_config(model_names: list[str]) -> tuple[dict, dict]:
             },
             {
                 "name": "detection_classes",
-                "data_type": "TYPE_INT32",
-                "dims": [1000]
+                "data_type": "TYPE_STRING",
+                "dims": [1]
             }
         ],
         "instance_group": [

@@ -57,7 +57,7 @@ class ImageProcessor:
         label = f"({class_id}: {confidence:.2f})"
         color = (255, 0, 0)
         cv2.rectangle(img, (x, y), (x_plus_w, y_plus_h), color, 2)
-        cv2.putText(img, label, (x - 10, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
+        cv2.putText(img, label, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
 
 class InferencePipeline:
