@@ -6,8 +6,6 @@ This project explores implementing model management in Triton Inference Server. 
 
 1. Clone the Repository:
 
-   Use Git to clone the repository locally:
-
    ```
    git clone https://gitlab.com/olooeez/triton-model-management.git
    ```
@@ -16,7 +14,6 @@ This project explores implementing model management in Triton Inference Server. 
 
 2. Install Dependencies:
 
-   Navigate to the project directory and install necessary dependencies using pip:
 
    ```
    cd triton-model-management
@@ -25,7 +22,6 @@ This project explores implementing model management in Triton Inference Server. 
 
 3. Build the Docker Image:
 
-   Construct a Docker image to encapsulate the project environment:
 
    ```
    docker build -t triton-inference-server-manager .
@@ -33,7 +29,6 @@ This project explores implementing model management in Triton Inference Server. 
 
 4. Create a Container:
 
-   Execute the `server.sh` script to set up the Triton Inference Server within a container:
 
    ```
    bash server.sh
@@ -41,7 +36,6 @@ This project explores implementing model management in Triton Inference Server. 
 
 5. Compile Protocol Buffers file
 
-   Run the command below to compile a `config_pb2.py` for the protocol buffers:
 
    ```
    protoc --python_out=. config.proto
@@ -51,7 +45,6 @@ This project explores implementing model management in Triton Inference Server. 
 
 6. Run the Model Management:
 
-   Run the `manage.py` script with the load or unload commands to load or unload models:
 
    ```
    python3 manage.py [load|unload] MODEL_NAME
@@ -78,7 +71,6 @@ This project explores implementing model management in Triton Inference Server. 
 
 7. Run the Client:
 
-   Run the `main.py` script to infer an image with a specific model:
 
    ```
    python3 main.py
