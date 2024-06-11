@@ -4,7 +4,7 @@ This project explores implementing model management in Triton Inference Server. 
 
 ## Getting Started
 
-### 1. Clone the Repository:
+1. Clone the Repository:
 
    Use Git to clone the repository locally:
 
@@ -14,7 +14,7 @@ This project explores implementing model management in Triton Inference Server. 
 
    > **Note:** Git Large File Storage (LFS) is required for this repository. Install it using `git lfs install` before cloning.
 
-### 2. Install Dependencies:
+2. Install Dependencies:
 
    Navigate to the project directory and install necessary dependencies using pip:
 
@@ -23,7 +23,7 @@ This project explores implementing model management in Triton Inference Server. 
    pip install -r requirements.txt
    ```
 
-### 3. Build the Docker Image:
+3. Build the Docker Image:
 
    Construct a Docker image to encapsulate the project environment:
 
@@ -31,7 +31,7 @@ This project explores implementing model management in Triton Inference Server. 
    docker build -t triton-inference-server-manager .
    ```
 
-### 4. Create a Container:
+4. Create a Container:
 
    Execute the `server.sh` script to set up the Triton Inference Server within a container:
 
@@ -39,7 +39,7 @@ This project explores implementing model management in Triton Inference Server. 
    bash server.sh
    ```
 
-### 5. Compile Protocol Buffers file
+5. Compile Protocol Buffers file
 
    Run the command below to compile a `config_pb2.py` for the protocol buffers:
 
@@ -49,7 +49,7 @@ This project explores implementing model management in Triton Inference Server. 
 
    > **Note**: You need to have `protoc` installed. Use `sudo apt install protobuf-compiler` to install it.
 
-### 6. Run the Model Management:
+6. Run the Model Management:
 
    Run the `manage.py` script with the load or unload commands to load or unload models:
 
@@ -76,7 +76,7 @@ This project explores implementing model management in Triton Inference Server. 
    python3 manage.py list
    ```
 
-### 7. Run the Client:
+7. Run the Client:
 
    Run the `main.py` script to infer an image with a specific model:
 
