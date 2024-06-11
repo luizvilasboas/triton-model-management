@@ -4,6 +4,8 @@ This project explores implementing model management in Triton Inference Server. 
 
 ## Getting Started
 
+To run the project, follow these steps:
+
 1. Clone the Repository:
 
    ```
